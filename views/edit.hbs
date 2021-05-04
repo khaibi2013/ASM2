@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="edit.css">
+</head>
+<body>
+    <div class="content" style="top: 39.2px;"> 
+    <h2 class="title">Update product</h2>
+    
+    <form action="/update" method="post" class="updateForm">
+    <div class="as">
+    <input type="hidden" name="txtId" value="{{product._id}}">
+     <br>
+     Name
+     <br>
+    <input type="text" name="txtName" value="{{product.name}}" class="as"/>
+    
+    <br>
+    Price 
+    <br>
+        <input type="text" name="txtPrice" value="{{product.price}}" class="as" />
+    <br>
+    Color
+    <br>
+    <input type="text" name="txtColor" value="{{product.color}}" class="as"/>
+		
+    </div>
+        <br>
+    <div class="btnLine">
+        <input type="submit"  value="update" class="btn">
+    </div>
+    </form>
+    </div>
+</body>
+</html>

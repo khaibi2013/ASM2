@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header>
+    <h1>Toy Shop</h1>
+    </header>
+<section>
+    <nav>
+        <ul>
+        <form action="/search" method="post">
+        Name <input type="text" name="txtName"/>
+        <input type="submit" value="Search">
+        </form>
+        <a href="/insert">New Product</a>
+        <tr>
+            <a class="btn_index" href="/insert"><input type="submit" id="btn" value="add"></a>
+
+        </tr>
+        </ul>
+        </nav>
+        <article>
+            <h1>List Product of Toy Store</h1>
+        <table > 
+         <tr>
+            <th>Name</th>
+            <th>price</th>
+            <th>Color</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        {{# each model}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{price}}</td>
+            <td>{{color}}</td>
+            <td><a href="/delete?id={{_id}}">Delete</a></td>
+            <td><a href="/edit?id={{_id}}">Edit</a></td>
+            
+        </tr>
+        {{/each}}
+        </table>
+    
+    </article>
+    </section>
+    <footer>
+    <p>Coppyright by @Nguyen Quang Khai</p>
+    </footer>
+</body>
+</html>

@@ -96,19 +96,3 @@ app.post('/doInsert',async (req,res)=>{
 const PORT = process.env.PORT || 3000
 app.listen(PORT);
 console.log('sever is running at 3000')
- 
-// var express = require('express')
-// var hbs = require('hbs')
-
-// var app = express()
-
-// var bodyParser = require("body-parser");
-
-// app.use(bodyParser.urlencoded({extended: false }))
-// app.set('view engine','hbs')
-// app.get('/',(req,res)=>{
-//    res.render('home')
-//  })
-// const PORT = process.env.PORT || 3000
-// app.listen(PORT);
-// console.log('sever is running at 3000')

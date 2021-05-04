@@ -11,7 +11,7 @@ app.set('view engine','hbs')
 app.use(express.static(__dirname +'/public'));
 
 
-var url = 'mongodb://localhost:27017';
+var url = 'mongodb+srv://toyshop:Khaibi113day@cluster0.yiu6k.mongodb.net/test';
 var MongoClient = require('mongodb').MongoClient;
 
 app.post('/update',async (req,res)=>{
@@ -32,7 +32,7 @@ app.post('/update',async (req,res)=>{
 
     let client= await MongoClient.connect(url);
 
-    let dbo = client.db("toy123");
+    let dbo = client.db("toy1234");
 
     await dbo.collection("product").updateOne(condition,newValues);
 
@@ -46,7 +46,7 @@ app.get('/edit',async (req,res)=>{
     let condition = {"_id" : ObjectID(id)};
 
     let client= await MongoClient.connect(url);
-    let dbo = client.db("toy123");
+    let dbo = client.db("toy1234");
     let productToEdit = await dbo.collection("product").findOne(condition);
     res.render('edit',{product:productToEdit})
 })
@@ -57,14 +57,14 @@ app.get('/delete',async (req,res)=>{
     let condition = {"_id" : ObjectID(id)};
 
     let client= await MongoClient.connect(url);
-    let dbo = client.db("toy123");
+    let dbo = client.db("toy1234");
     await dbo.collection("product").deleteOne(condition);
     res.redirect('/')
 })
 
 app.post('/search',async(req,res)=>{
     let client= await MongoClient.connect(url);
-    let dbo = client.db("toy123");
+    let dbo = client.db("toy1234");
     let nameInput = req.body.txtName;
     let searchCondition = new RegExp(nameInput,'i')
     let results = await dbo.collection("product").find({name:searchCondition}).toArray();
@@ -73,7 +73,7 @@ app.post('/search',async(req,res)=>{
 
 app.get('/',async (req,res)=>{
 let client= await MongoClient.connect(url);
-let dbo = client.db("toy123");
+let dbo = client.db("toy1234");
 let results = await dbo.collection("product").find({}).toArray();
 res.render('home',{model:results})
 })
@@ -88,7 +88,7 @@ app.post('/doInsert',async (req,res)=>{
     var newProduct = {name:nameInput, price:priceInput, color:colorInput};
 
     let client= await MongoClient.connect(url);
-    let dbo = client.db("toy123");
+    let dbo = client.db("toy1234");
     await dbo.collection("product").insertOne(newProduct);
     res.redirect('/')
 
